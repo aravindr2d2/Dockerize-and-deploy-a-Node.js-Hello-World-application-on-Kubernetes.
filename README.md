@@ -22,9 +22,8 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
 
 2. **Create a Dockerfile:**
 
-    ```
     Refer [Dockerfile](Dockerfile)
-    ```
+    
 
 4. **Build and Test the Docker Image Locally:**
 

@@ -22,9 +22,7 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
 
 2. **Create a Dockerfile:**
 
-    ```dockerfile
-
-    ```
+    Refer Dockerfile
 
 3. **Build and Test the Docker Image Locally:**
 
@@ -43,29 +41,7 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
 
 2. **Update `values.yaml`:**
 
-    ```yaml
-    replicaCount: 1
-
-    image:
-      repository: <your-dockerhub-username>/node-hello
-      pullPolicy: IfNotPresent
-      tag: "latest"
-
-    service:
-      type: ClusterIP
-      port: 3000
-
-    ingress:
-      enabled: false
-
-    resources: {}
-
-    nodeSelector: {}
-
-    tolerations: []
-
-    affinity: {}
-    ```
+    Refer values.yaml
 
 3. **Update `templates/deployment.yaml`:**
 

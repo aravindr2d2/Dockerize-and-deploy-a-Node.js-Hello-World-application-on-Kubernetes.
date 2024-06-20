@@ -1,6 +1,6 @@
 # Node.js "Hello World" Application with Docker, Helm, and ArgoCD
 
-This guide will walk you through the steps to Dockerize a Node.js "Hello World" application, create a Kubernetes Helm chart, and deploy it using ArgoCD for GitOps management.
+This guide will walk you through the steps to Dockerize a Node.js "Hello World" application, create a Kubernetes Helm chart, and deploy it using ArgoCD.
 
 ## Prerequisites
 

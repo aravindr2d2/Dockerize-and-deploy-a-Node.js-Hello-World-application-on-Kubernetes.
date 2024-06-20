@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: kotisaiaravind/node-hello
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enabled: false
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

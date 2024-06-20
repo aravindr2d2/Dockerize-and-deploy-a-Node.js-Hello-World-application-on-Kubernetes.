@@ -41,54 +41,16 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
 
 2. **Update `values.yaml`:**
 
-    Refer values.yaml
+    Refer [values.yaml](values.yaml)
 
 3. **Update `templates/deployment.yaml`:**
 
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: {{ include "node-hello.fullname" . }}
-      labels:
-        {{- include "node-hello.labels" . | nindent 4 }}
-    spec:
-      replicas: {{ .Values.replicaCount }}
-      selector:
-        matchLabels:
-          {{- include "node-hello.selectorLabels" . | nindent 6 }}
-      template:
-        metadata:
-          labels:
-            {{- include "node-hello.selectorLabels" . | nindent 8 }}
-        spec:
-          containers:
-            - name: {{ .Chart.Name }}
-              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-              ports:
-                - containerPort: 3000
-              resources:
-                {{- toYaml .Values.resources | nindent 12 }}
-    ```
+    Refer [deployment.yaml](deployment.yaml)
 
 4. **Update `templates/service.yaml`:**
 
-    ```yaml
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: {{ include "node-hello.fullname" . }}
-      labels:
-        {{- include "node-hello.labels" . | nindent 4 }}
-    spec:
-      type: {{ .Values.service.type }}
-      ports:
-        - port: {{ .Values.service.port }}
-          targetPort: 3000
-      selector:
-        {{- include "node-hello.selectorLabels" . | nindent 4 }}
-    ```
-
+   Refer [service.yaml](service.yaml)
+    
 ## Step 3: Push the Helm Chart to GitHub
 
 1. **Initialize a New Git Repository and Push the Helm Chart:**
@@ -97,7 +59,7 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
     git init
     git add .
     git commit -m "Initial commit with Helm chart"
-    git remote add origin https://github.com/<your-github-username>/node-hello-helm.git
+    git remote add origin https://github.com/aravindr2d2/Dockerize-and-deploy-a-Node.js-Hello-World-application-on-Kubernetes.git
     git push -u origin main
     ```
 
@@ -109,31 +71,9 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
 
 2. **Create an `application.yaml` File for ArgoCD:**
 
-    ```yaml
-    apiVersion: argoproj.io/v1alpha1
-    kind: Application
-    metadata:
-      name: node-hello
-      namespace: argocd
-    spec:
-      project: default
+   Refer [application.yaml](application.yaml)
 
-      source:
-        repoURL: 'https://github.com/<your-github-username>/node-hello-helm'
-        targetRevision: HEAD
-        path: node-hello
-
-      destination:
-        server: 'https://kubernetes.default.svc'
-        namespace: default
-
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-    ```
-
-3. **Apply the ArgoCD `application.yaml`:**
+4. **Apply the ArgoCD `application.yaml`:**
 
     ```sh
     kubectl apply -f application.yaml

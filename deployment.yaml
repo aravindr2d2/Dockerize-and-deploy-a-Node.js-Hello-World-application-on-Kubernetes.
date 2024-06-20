@@ -13,7 +13,7 @@ spec:
         app: {{ .Release.Name }}
     spec:
       containers:
-      - name: hello-world
+      - name: node-hello
         image: {{ .Values.image }}:{{ .Values.appVersion }}
         port:
           containerPort: {{ .Values.port }}

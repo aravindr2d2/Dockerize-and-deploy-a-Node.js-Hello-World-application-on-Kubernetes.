@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: 'https://github.com/<your-github-username>/node-hello-helm'
+    repoURL: 'https://github.com/Dockerize-and-deploy-a-Node.js-Hello-World-application-on-Kubernetes.git'
     targetRevision: HEAD
     path: node-hello
 

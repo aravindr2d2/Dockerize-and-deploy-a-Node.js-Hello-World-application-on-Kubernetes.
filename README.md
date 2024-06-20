@@ -60,7 +60,7 @@ This guide will walk you through the steps to Dockerize a Node.js "Hello World" 
     git init
     git add .
     git commit -m "Initial commit with Helm chart"
-    git remote add origin https://github.com/aravindr2d2/Dockerize-and-deploy-a-Node.js-Hello-World-application-on-Kubernetes.git
+    git remote add origin https://github.com/aravindr2d2/Dockerize-and-deploy-a-Node.js-Hello-World-application-on-Kubernetes..git
     git push -u origin main
     ```
 
